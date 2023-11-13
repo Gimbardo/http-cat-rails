@@ -1,5 +1,1 @@
-<body style="margin: 0">
-  <div style="width: 100vw; height: 100vh; background: black; display: flex; align-items: center; justify-content: center">
-    <%= image_tag "#{Http::Cat::Rails.base_url}#{@code}.jpg", width: "50%" %>
-  </div>
-</body>
+<%= image_tag "#{Http::Cat::Rails.base_url}#{@code}#{".#{Http::Cat::Rails.extension}" if Http::Cat::Rails.extension}", width: "50%", class: "http_error_image" %>

@@ -28,10 +28,12 @@ module Http
                           '509': 'Bandwidth Limit Exceeded', '510': 'Not Extended', '511': 'Network Authentication Required',
                           '521': 'Web Server Is Down', '522': 'Connection Timed Out', '523': 'Origin Is Unreachable',
                           '525': 'SSL Handshake Failed', '530': 'Site Frozen', '599': 'Network Connect Timeout Error' },
-          base_url: "https://http.cat/"
+          base_url: "https://http.cat/",
+          extension: :jpg,
+          layout: "layout_default"
         }.freeze
 
-        attr_writer :status_codes, :base_url
+        attr_writer :status_codes, :base_url, :extension, :layout
 
         def configure
           yield self
@@ -45,6 +47,13 @@ module Http
           @base_url || DEFAULTS[:base_url]
         end
 
+        def extension
+          @extension || DEFAULTS[:extension]
+        end
+
+        def layout
+          @layout || DEFAULTS[:layout]
+        end
       end
     end
   end
